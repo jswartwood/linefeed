@@ -1,0 +1,13 @@
+{
+  "name": "linefeed",
+  "version": "0.1.0",
+  "description": "Transforms a stream into newline separated chunks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:jswartwood/linefeed.git",
+  "author": "Jacob Swartwood",
+  "license": "MIT",
+  "gitHead": "49472aa46526a080bddef3d12c71cf1e4a1325af"
+}
