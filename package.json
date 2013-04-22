@@ -4,8 +4,12 @@
   "description": "Transforms a stream into newline separated chunks.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha ./test"
   },
+	"devDependencies": {
+		"mocha": "*",
+		"chai": "*"
+	},
   "repository": "git@github.com:jswartwood/linefeed.git",
   "author": "Jacob Swartwood",
   "license": "MIT",
