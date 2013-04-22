@@ -22,8 +22,9 @@ LineStream.prototype._transform = function _transform( chunk, encoding, done ) {
 	
 	for (var i = 0; i <= last; i++) {
 		if (i < last) {
-			this.push(this._temp + lines[i] + this.newline);
+			this.push(this._temp + lines[i])
 			this._temp = "";
+			this.push(this.newline);
 		} else {
 			this._temp += lines[i];
 		}
