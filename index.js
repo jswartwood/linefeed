@@ -9,7 +9,7 @@ function LineStream( opts ) {
 
 	stream.Transform.call(this, opts);
 
-	this.newline = "\n";
+	this.newline = (opts && 'newline' in opts) ? opts.newline : "\n";
 	this._temp = "";
 }
 
@@ -24,7 +24,7 @@ LineStream.prototype._transform = function _transform( chunk, encoding, done ) {
 		if (i < last) {
 			this.push(this._temp + lines[i])
 			this._temp = "";
-			this.push(this.newline);
+			if (this.newline) this.push(this.newline);
 		} else {
 			this._temp += lines[i];
 		}
