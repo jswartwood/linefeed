@@ -21,8 +21,7 @@ LineStream.prototype._transform = function _transform( chunk, encoding, done ) {
 	
 	lines[0] = this._temp + lines[0]
 	for (var i = 0; i < last; i++) {
-		this.push(lines[i]);
-		if (this.newline) this.push(this.newline);
+		this.push(lines[i]+this.newline);
 	}
 	this._temp = lines[last];
 
