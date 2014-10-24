@@ -22,7 +22,7 @@ fs.createReadStream("some_unix_file.txt").pipe(converter).pipe(process.stdout);
 Or just grab the lines:
 
 ```js
-var LineStream = require('./'),
+var LineStream = require('linefeed'),
     splitter = new LineStream({newline:"", objectMode:true});
 fs.createReadStream("README.md").pipe(splitter).on('data', function (line) {
     console.log("Got a line:", line);
