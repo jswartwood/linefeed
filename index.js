@@ -18,7 +18,7 @@ util.inherits(LineStream, stream.Transform);
 LineStream.prototype._transform = function _transform( chunk, encoding, done ) {
 	var lines = chunk.toString().split(lineMatcher),
 			last = lines.length - 1;
-	
+
 	lines[0] = this._temp + lines[0]
 	for (var i = 0; i < last; i++) {
 		this.push(lines[i]+this.newline);
