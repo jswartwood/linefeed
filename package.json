@@ -4,7 +4,10 @@
   "description": "Transforms a stream into newline separated chunks.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha ./test"
+    "test": "./node_modules/.bin/mocha ./test"
+  },
+  "bin": {
+    "linefeed": "./bin/linefeed"
   },
 	"devDependencies": {
 		"mocha": "*",
