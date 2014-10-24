@@ -13,7 +13,6 @@ function LineStream( opts ) {
 	this._temp = "";
 }
 
-//StatusStream.prototype = Object.create(stream.Transform.prototype, { constructor: { value: stream.Transform }});
 util.inherits(LineStream, stream.Transform);
 
 LineStream.prototype._transform = function _transform( chunk, encoding, done ) {
