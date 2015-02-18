@@ -9,26 +9,21 @@ function LineStream( opts ) {
 
 	stream.Transform.call(this, opts);
 
-	this.newline = "\n";
+	this.newline = (opts && 'newline' in opts) ? opts.newline : "\n";
 	this._temp = "";
 }
 
-//StatusStream.prototype = Object.create(stream.Transform.prototype, { constructor: { value: stream.Transform }});
 util.inherits(LineStream, stream.Transform);
 
 LineStream.prototype._transform = function _transform( chunk, encoding, done ) {
 	var lines = chunk.toString().split(lineMatcher),
 			last = lines.length - 1;
-	
-	for (var i = 0; i <= last; i++) {
-		if (i < last) {
-			this.push(this._temp + lines[i])
-			this._temp = "";
-			this.push(this.newline);
-		} else {
-			this._temp += lines[i];
-		}
+
+	lines[0] = this._temp + lines[0]
+	for (var i = 0; i < last; i++) {
+		this.push(lines[i]+this.newline);
 	}
+	this._temp = lines[last];
 
 	done();
 };
